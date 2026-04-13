@@ -1,0 +1,121 @@
+ Mini project  : STUDENT COURSE ENROLLMENT SYSTEM (JAVA – OOPS)  
+1. Program Title :  
+Student Course Enrollment System using Java (Core Logic + Data Structure)  
+2. Problem Statement :  
+To develop the core logic and data structure backbone for managing student 
+course enrollment using Java OOP concepts.  
+3. Objective :  
+• To implement OOP concepts  
+• To use ArrayList for data storage  
+• To manage student-course relationships  
+4. Tools Used :  
+• Java (JDK)  
+• VS Code / Command Prompt  
+5. Description :  
+This program implements the core logic of a Student Course Enrollment  
+System using Java. It uses classes like Student and Course, and an 
+EnrollmentSystem class to manage them. ArrayList is used as the data structure to 
+store students and courses. The program allows adding, searching, and enrolling 
+students into courses.  
+  
+6. Algorithm :  
+1. Start   
+2. Create Course class   
+3. Create Student class with ArrayList   
+4. Create EnrollmentSystem class   
+5. Add students and courses   
+6. Search using ID   
+7. Enroll student   
+8. Display courses   
+9. Stop   
+  
+7. Program (Java Code) :  
+import java.util.ArrayList;  
+  
+class Course {  
+    int id;  
+    String name;  
+  
+    Course(int id, String name) {  
+        this.id = id;  
+        this.name = name;  
+    }  
+}  
+  
+class Student {  
+    int id;  
+    String name;  
+    ArrayList<Course> courses = new ArrayList<>();  
+  
+    Student(int id, String name) {  
+        this.id = id;  
+        this.name = name;  
+    }  
+  
+    void enroll(Course c) {  
+        courses.add(c);  
+    }  
+  
+    void display() {         for (Course c : 
+courses) {             
+System.out.println(c.name);  
+        }  
+    }  
+}  
+  
+class EnrollmentSystem {  
+    ArrayList<Student> students = new ArrayList<>();  
+    ArrayList<Course> courses = new ArrayList<>();  
+  
+    void addStudent(Student s) {  
+        students.add(s);  
+    }  
+  
+    void addCourse(Course c) {  
+        courses.add(c);  
+    }  
+  
+    Student findStudent(int id) {         
+for (Student s : students) {             
+if (s.id == id)  
+                return s;  
+        }  
+        return null;  
+    }  
+  
+    Course findCourse(int id) {  
+        for (Course c : courses) {             
+if (c.id == id)  
+                return c;  
+        }  
+        return null;  
+    }  
+  
+    void enrollStudent(int sid, int cid) {         
+Student s = findStudent(sid);         
+Course c = findCourse(cid);         if (s != 
+null && c != null) {             s.enroll(c);  
+        }  
+    }  
+}  
+  
+public class Main {  
+    public static void main(String[] args) {  
+  
+        EnrollmentSystem sys = new EnrollmentSystem();  
+  
+        Student s = new Student(1, "Aswini");  
+        Course c = new Course(101, "Java");  
+  
+        sys.addStudent(s);  
+sys.addCourse(c);  
+sys.enrollStudent(1, 101);  
+s.display();  
+} 
+}   
+9. Result :  
+Thus the Java program for Student Course Enrollment System using core logic and 
+data structure was executed successfully.  
+10. Conclusion :  
+This program demonstrates Java OOP concepts and uses ArrayList as the data 
+structure to implement student-course enrollment efficiently.  
